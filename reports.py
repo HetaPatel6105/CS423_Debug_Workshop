@@ -11,7 +11,8 @@ def find_product_by_name(products, name):
 
 
 def low_stock_products(products, threshold=5):
-    return [p for p in products if p["stock"] < threshold and p["stock"] > 0]
+    # changed >0 to >=0 because it should include products that are at 0
+    return [p for p in products if p["stock"] < threshold and p["stock"] >= 0]
 
 
 def products_sorted_by_price(products):
