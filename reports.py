@@ -1,6 +1,11 @@
 def find_product_by_name(products, name):
+
+    #added strip to get rid of whitespace 
+    #added lower to match casing use in loop below
+    name = name.lower().strip()
     for product in products:
-        if product["name"].lower() == name:
+        #added strip to get rid of whitespace 
+        if product["name"].lower().strip() == name:
             return product
     return None
 
