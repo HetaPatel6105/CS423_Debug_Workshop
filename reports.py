@@ -16,7 +16,8 @@ def low_stock_products(products, threshold=5):
 
 
 def products_sorted_by_price(products):
-    products.sort(key=lambda p: p["stock"])
+    #Sort the products by price.
+    products.sort(key=lambda p: p["price"])
     return products
 
 
@@ -29,8 +30,10 @@ def category_summary(products):
         if category not in summary:
             summary[category] = {"product_count": 0, "total_stock": 0}
 
-        summary[category]["product_count"] += product["stock"]
-        summary[category]["total_stock"] += 1
+        # increment the product count by 1 every time that product appears in the products list.
+        summary[category]["product_count"] += 1
+        # total_stock is the sum of each products individual stock.
+        summary[category]["total_stock"] += product["stock"]
 
     return summary
 
